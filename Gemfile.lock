@@ -38,11 +38,17 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
+    hashie (2.0.5)
     hike (1.2.3)
+    httpauth (0.2.0)
     i18n (0.6.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     libv8 (3.3.10.4)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -50,6 +56,22 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.7)
+    multipart-post (1.2.0)
+    oauth2 (0.8.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-google-oauth2 (0.2.0)
+      omniauth (~> 1.0)
+      omniauth-oauth2
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -105,6 +127,8 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jquery-rails
+  omniauth
+  omniauth-google-oauth2
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sqlite3
