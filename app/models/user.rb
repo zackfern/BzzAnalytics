@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
         user.email = auth['info']['email']
         user.token = auth['credentials']['token']
         user.token_expires_at = Time.strptime(auth['credentials']['expires_at'].to_s, '%s')
+        user.refresh_token = auth['credentials']['refresh_token']
       end
     else
       user

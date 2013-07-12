@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :uid
       t.string :token
       t.datetime :token_expires_at
+      t.string :refresh_token
 
       t.timestamps
     end
