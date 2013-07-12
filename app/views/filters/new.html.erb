@@ -1,1 +1,14 @@
 <% title 'New Filter' %>
+
+<%= form_for @filter do |f| %>
+  <%= f.label :web_property_id, 'Web Property' %>
+  <%= f.select :web_property_id, web_property_ids_for_user(current_user) %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: 'Manage Lists' %>
+
+  <%= f.label :path %>
+  <%= f.text_field :path, placeholder: 'manage_lists/*' %>
+
+  <%= f.submit %>
+<% end %>

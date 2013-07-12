@@ -27,6 +27,6 @@ class FiltersController < ApplicationController
 
   private
   def filter_params
-    params.require(:filter).permit(:name, :path)
+    params.require(:filter).permit(:name, :path, :web_property_id)
   end
 end
