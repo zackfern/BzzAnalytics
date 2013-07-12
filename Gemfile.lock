@@ -49,6 +49,8 @@ GEM
       thor (>= 0.14, < 2.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    legato (0.0.10)
+      multi_json
     libv8 (3.3.10.4)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -127,6 +129,8 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jquery-rails
+  legato
+  oauth2
   omniauth
   omniauth-google-oauth2
   rails (= 4.0.0)
