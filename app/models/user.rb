@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :filters, dependent: :destroy
+  attr_reader :oauth_token
 
   # Public: Finds or creates a User by the UID returned from Google OAuth
   #
@@ -22,21 +23,32 @@ class User < ActiveRecord::Base
   # Public: Generates an OAuth2 Token Object.
   # We'll use this within the Legato Gem to access Google Analytics.
   #
-  def oauth2_token
-    @client = OAuth2::Client.new(BUZZ_CONFIG[:GOOGLE_KEY], BUZZ_CONFIG[:GOOGLE_SECRET], {
+  def generate_oauth_token
+    @client ||= OAuth2::Client.new(BUZZ_CONFIG[:GOOGLE_KEY], BUZZ_CONFIG[:GOOGLE_SECRET], {
       authorize_url: 'https://accounts.google.com/o/oauth2/auth',
       token_url: 'https://accounts.google.com/o/oauth2/token'
     })
-    OAuth2::AccessToken.from_hash(@client, {
+    @oauth_token ||= OAuth2::AccessToken.from_hash(@client, {
       access_token: token,
       refresh_token: refresh_token
     })
+    refresh_our_token if Time.now > token_expires_at
+
+    return @oauth_token
+  end
+
+  # Public: Get a new OAuth Token from Google.
+  #
+  def refresh_our_token
+    @oauth_token = @oauth_token.refresh!
+    self.token = @oauth_token.token
+    save
   end
 
   # Public: Generates a Legato::User using this user's Google token.
   #
   def legato
-    @legato ||= Legato::User.new(oauth2_token)
+    @legato ||= Legato::User.new(generate_oauth_token)
   end
 
   # Public: Returns the User's Google Analytics profiles from Legato.
