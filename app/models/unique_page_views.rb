@@ -4,7 +4,11 @@ class UniquePageViews
   metrics :uniquePageviews
   dimensions :pagePath
 
-  filter(:managed_lists) do
-    contains(:pagePath, 'manage_lists/*')
+  # Public: Generate a Legato Filter dynamically.
+  #
+  def self.new_dynamic_filter(name, path)
+    filter(name.to_sym) do
+      contains(:pagePath, path)
+    end
   end
 end
