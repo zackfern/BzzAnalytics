@@ -1,0 +1,17 @@
+<% title 'Filters' %>
+
+<% if @filters.blank? %>
+  <h1>You don't have any filters!</h1>
+  <p>
+    In order to use the site, you've first got to setup a filter.
+    This filter will be used to choose which Google Analytics views you'd like to save into the database.
+    <br />
+    <%= link_to "Create one now!", :new_filter %>
+  </p>
+<% else %>
+  <ul>
+    <% @filters.each do |filter| %>
+      <li><%= link_to filter.name, filter_views_path(filter) %></li>
+    <% end %>
+  </ul>
+<% end %>

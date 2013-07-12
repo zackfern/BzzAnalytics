@@ -8,13 +8,6 @@ module ApplicationHelper
     content_tag :h1, page_title
   end
 
-  # Public: Returns the current user, if someone's logged in.
-  #
-  # Returns a User
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
   # Public: Check if there's currently a user session.
   #
   # Returns boolean.
