@@ -11,7 +11,7 @@
 <% else %>
   <ul>
     <% @filters.each do |filter| %>
-      <li><%= link_to filter.name, filter_views_path(filter) %></li>
+      <li><%= link_to filter.name, filter_visits_path(filter) %></li>
     <% end %>
   </ul>
 <% end %>

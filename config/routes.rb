@@ -1,7 +1,7 @@
 BuzzAnalytics::Application.routes.draw do
 
   resources :filters, only: [ :new, :create, :destroy ] do
-    resources :views, only: [ :index ]
+    resources :visits, only: [ :index ]
   end
 
   # Authentication Routes.
