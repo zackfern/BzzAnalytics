@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20130712205302) do
   create_table "filters", force: true do |t|
     t.string   "name"
     t.string   "path"
+    t.string   "web_property_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
