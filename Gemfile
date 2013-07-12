@@ -16,3 +16,5 @@ gem 'omniauth' # Framework for our OAuth-ing.
 gem 'omniauth-google-oauth2' # OAuth2 for Google APIs
 gem 'oauth2'
 gem 'legato'
+gem 'bourbon'
+gem 'neat'
