@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :filters, dependent: :destroy
+
   # Public: Finds or creates a User by the UID returned from Google OAuth
   #
   # Returns a User
@@ -25,12 +27,22 @@ class User < ActiveRecord::Base
       authorize_url: 'https://accounts.google.com/o/oauth2/auth',
       token_url: 'https://accounts.google.com/o/oauth2/token'
     })
-    OAuth2::AccessToken.from_hash(@client, { access_token: token })
+    OAuth2::AccessToken.from_hash(@client, {
+      access_token: token,
+      refresh_token: refresh_token
+    })
   end
 
   # Public: Generates a Legato::User using this user's Google token.
   #
-  def build_legato_user
-    Legato::User.new(oauth2_token)
+  def legato
+    @legato ||= Legato::User.new(oauth2_token)
+  end
+
+  # Public: Returns the User's Google Analytics profiles from Legato.
+  #
+  # Returns an Array.
+  def ga_profiles
+    legato.profiles
   end
 end
