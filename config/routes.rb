@@ -9,5 +9,6 @@ BuzzAnalytics::Application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   get 'auth/:provider/callback', to: 'sessions#create'
 
+  get 'kill_session', to: 'sessions#kill' if Rails.env.development?
   root to: 'filters#index'
 end

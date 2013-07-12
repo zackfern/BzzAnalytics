@@ -12,4 +12,9 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to :root, notice: 'Goodbye.'
   end
+
+  def kill
+    reset_session
+    redirect_to :root
+  end
 end
