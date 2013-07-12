@@ -1,2 +1,31 @@
-<h1>Visits#index</h1>
-<p>Find me in app/views/visits/index.html.erb</p>
+<% title 'Visits' %>
+
+<h1>
+  <%= @filter.name %> Visits
+  <small><%= @filter.web_property_id %></small>
+</h1>
+
+<% if @visits.blank? %>
+  <p>
+    This filter hasn't had any visits registered yet.
+    <br />
+    <%= link_to 'Click here to import them from Google Analytics.' %>
+  </p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Path</th>
+        <th>Unique Pageviews</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @visits.each do |visit| %>
+        <tr>
+          <td><%= visit.path %></td>
+          <td><%= visit.pageviews %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
