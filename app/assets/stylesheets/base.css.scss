@@ -33,19 +33,22 @@ h2 {
 }
 
 header {
-  background-color: #f6f6f6;
-  border-bottom: 1px solid darken(#f6f6f6, 10%);
+  @include linear-gradient(#f68707, #faa747);
+  border-bottom: 1px solid #e57e07;
   margin-bottom: 1em;
   @include pad(0.5em);
   h1 {
     display: inline;
     font-size: 1.25em;
     a {
-      color: $font-color;
+      color: #824804;
     }
   }
   .right {
     float: right;
+    a {
+      color: #FFF;
+    }
   }
 }
 
