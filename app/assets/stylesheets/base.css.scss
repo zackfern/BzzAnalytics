@@ -1,0 +1,60 @@
+$font-color: #666;
+$alert-background: #FFC0CB;
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: $font-color;
+  font-size: 16px;
+  line-height: 1.2em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+}
+
+.container {
+  @include outer-container;
+}
+
+header {
+  background-color: #f6f6f6;
+  border-bottom: 1px solid darken(#f6f6f6, 10%);
+  margin-bottom: 1em;
+  @include pad(0.5em);
+  h1 {
+    display: inline;
+    font-size: 1.25em;
+    a {
+      color: $font-color;
+    }
+  }
+  .right {
+    float: right;
+  }
+}
+
+.login_notice {
+  @include span-columns(6);
+  @include shift(3);
+  @include pad(2em);
+  background-color: lighten($alert-background, 10%);
+  border: 1px solid $alert-background;
+  border-radius: 0.5em;
+  text-align: center;
+  h2 {
+    font-weight: bold;
+  }
+}

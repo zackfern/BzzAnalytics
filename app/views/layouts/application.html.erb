@@ -8,13 +8,17 @@
   </head>
   <body>
     <header>
-      <h1>BuzzAnalytics</h1>
-      <div class="right">
-        <% if user_signed_in? %>
-          <%= link_to "Logout", :logout, method: :delete %>
-        <% end %>
+      <div class="container">
+        <h1><%= link_to 'BuzzAnalytics', :root %></h1>
+        <div class="right">
+          <% if user_signed_in? %>
+            <%= link_to "Logout", :logout, method: :delete %>
+          <% end %>
+        </div>
       </div>
     </header>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
