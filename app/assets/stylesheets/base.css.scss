@@ -18,6 +18,9 @@ a {
 h1 {
   font-size: 1.5em;
   margin-bottom: 0.5em;
+  small {
+    font-size: 0.75em;
+  }
 }
 
 h2 {
@@ -56,5 +59,28 @@ header {
   text-align: center;
   h2 {
     font-weight: bold;
+  }
+}
+
+table {
+  $table-background: #f6f6f6;
+  background-color: $table-background;
+  border: 1px solid darken($table-background, 5%);
+  width: 100%;
+  thead {
+    background-color: darken($table-background, 5%);
+  }
+  td, th {
+    padding: 0.5em;
+    text-align: left;
+  }
+  th {
+    font-weight: bold;
+  }
+  tr {
+    border: 1px solid darken($table-background, 5%);
+    &:last-child {
+      border: none;
+    }
   }
 }
