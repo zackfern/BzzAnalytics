@@ -46,7 +46,7 @@ header {
   }
 }
 
-.login_notice {
+.alert-box {
   @include span-columns(6);
   @include shift(3);
   @include pad(2em);
