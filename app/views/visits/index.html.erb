@@ -38,3 +38,8 @@
     </tbody>
   </table>
 <% end %>
+
+<div class="details">
+  Last imported <%= @filter.last_imported.strftime("%A %B %d, %Y at %I:%M%p %Z") %> &bull;
+  <%= @visits.count %> visits.
+</div>
