@@ -26,6 +26,12 @@ class FiltersController < ApplicationController
     end
   end
 
+  def import_analytics
+    @filter = current_user.filters.find_by_id(params[:filter_id])
+    @filter.import_analytics
+    redirect_to filter_visits_path(@filter), notice: 'Ran filter import.'
+  end
+
   private
   def filter_params
     params.require(:filter).permit(:name, :path, :web_property_id)

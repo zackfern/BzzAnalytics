@@ -1,6 +1,7 @@
 BuzzAnalytics::Application.routes.draw do
 
   resources :filters, only: [ :new, :create, :destroy ] do
+    get 'import', action: 'import_analytics'
     resources :visits, only: [ :index ]
   end
 

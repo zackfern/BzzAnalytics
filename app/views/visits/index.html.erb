@@ -9,7 +9,7 @@
   </div>
 
   <div class="six columns buttons">
-    <%= link_to 'Run Analytics Import', '#', class: 'button' %>
+    <%= link_to 'Run Analytics Import', filter_import_path(@filter), class: 'button' %>
     <%= link_to 'Delete', filter_path(@filter), method: :delete, confirm: "Are you sure you want to delete the filter '#{@filter.name}' and ALL its visits? This cannot be undone.", class: 'red button' %>
   </div>
 </div>
@@ -18,7 +18,7 @@
   <p>
     This filter hasn't had any visits registered yet.
     <br />
-    <%= link_to 'Click here to import them from Google Analytics.' %>
+    <%= link_to 'Click here to import them from Google Analytics.', filter_import_path(@filter) %>
   </p>
 <% else %>
   <table>
