@@ -1,5 +1,7 @@
 $font-color: #666;
 $alert-background: #FFC0CB;
+$dark-alert-background: #ab1122;
+$notice-background: #22ad5a;
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -33,22 +35,36 @@ h2 {
 }
 
 header {
-  @include linear-gradient(#f68707, #faa747);
+  background-color: #faa747;
   border-bottom: 1px solid #e57e07;
   margin-bottom: 1em;
   @include pad(0.5em);
+  a {
+    // color: #824804;
+    color: #fff;
+    font-weight: 600;
+  }
   h1 {
     display: inline;
     font-size: 1.25em;
-    a {
-      color: #824804;
-    }
   }
   .right {
     float: right;
-    a {
-      color: #FFF;
-    }
+  }
+}
+
+.flash {
+  @extend .container;
+  color: #fff;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  &.notice {
+    background-color: $notice-background;
+    border: 1px solid darken($notice-background, 5%);
+  }
+  &.alert {
+    background-color: $dark-alert-background;
+    border: 1px solid darken($dark-alert-background, 5%);
   }
 }
 
@@ -57,8 +73,8 @@ header {
   @include shift(3);
   @include pad(2em);
   background-color: lighten($alert-background, 10%);
-  border: 1px solid $alert-background;
   border-radius: 0.5em;
+  border: 1px solid $alert-background;
   text-align: center;
   h2 {
     font-weight: bold;
@@ -88,5 +104,24 @@ table {
     &:last-child {
       border: none;
     }
+  }
+}
+
+.six {
+  @include span-columns(6);
+}
+
+.buttons {
+  text-align: right;
+}
+
+.button {
+  background-color: #faa747;
+  color: #fff;
+  display: inline-block;
+  margin-right: 0.5em;
+  padding: 0.25em 1em;
+  &.red {
+    background-color: $dark-alert-background;
   }
 }
