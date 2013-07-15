@@ -71,11 +71,14 @@ table {
   border: 1px solid darken($table-background, 5%);
   width: 100%;
   thead {
-    background-color: darken($table-background, 5%);
+    background-color: darken($table-background, 2%);
   }
   td, th {
     padding: 0.5em;
     text-align: left;
+  }
+  td {
+    word-break: break-all;
   }
   th {
     font-weight: bold;
