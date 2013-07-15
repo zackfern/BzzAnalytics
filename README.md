@@ -5,6 +5,12 @@ idea is that the application will access your Google Analytics account via the
 API and OAuth, and will filter out unique results based off a sample path (for
 example, every unique visit to the path `bookmarks/*`).
 
+### Regarding Security, Production, and Bugs
+As stated above, this was a quick and dirty project. It really isn't meant for
+anything else than looking at. It works, yes, but it doesn't do anything useful.
+I'm not going to secure it, nor am I going to do anything to make it work on
+production, or fix any bugs.
+
 ## Running the Site
 ### Setting up your Google Analytics API Key
 #### Register with Google
