@@ -15,7 +15,7 @@ production, or fix any bugs.
 ### Setting up your Google Analytics API Key
 #### Register with Google
 In order for the site to function you need a Google Analytics API key. To get
-this setup, follow these instructions. Take special care to set the callback
+this setup, [follow these instructions](https://developers.google.com/analytics/solutions/articles/hello-analytics-api#register_project). Take special care to set the callback
 URLs correctly. For example, if you're going to be running the site locally at
 `http://localhost:3000` then your callback URL will need to be
 `http://localhost:3000/auth/google_oauth2/callback`. Whatever URLs you end up
