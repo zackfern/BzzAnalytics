@@ -13,7 +13,7 @@ class FiltersController < ApplicationController
     @filter = current_user.filters.build(filter_params)
     if @filter.save
       @filter.import_analytics
-      redirect_to :root, notice: "Filter successfully created. #{pluralize(@filter.visits.count, 'visit')} imported."
+      redirect_to :root, notice: "Filter successfully created. #{@filter.visits.count} visits imported."
     else
       render :new
     end
