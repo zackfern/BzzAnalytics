@@ -25,12 +25,20 @@ class Filter < ActiveRecord::Base
     results = unique_page_view_results(profile)
 
     results.each do |result|
-      v = visits.build({
-        path: result.pagePath,
-        pageviews: result.uniquePageviews
-      })
-      v.save
+      visit = visits.find_or_initialize_by(path: result.pagePath)
+      # Check if the record is in the database, and if we need to save or not.
+      if visit.persisted?
+        # The record is already in the database.
+        # We only want to re-save it if there's been a change to the pageviews.
+        visit.update_attribute(:pageviews, result.uniquePageviews) unless visit.pageviews == result.uniquePageviews
+      else
+        # The record is brand new, so we'll save it regardless.
+        visit.pageviews = result.uniquePageviews
+        visit.save
+      end
     end
+
+    update_attribute :last_imported, Time.now
   end
 
   # Create a Legato filter dynamically using this template's information.
